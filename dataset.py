@@ -26,12 +26,15 @@ class TranslationDataset(torch.utils.data.Dataset):
         out_sentence_eos = self.fix_length(
             self.out_processor.EncodeAsIds(self.out_data[index].strip()) + [2]
         )
+
         return in_sentence, out_sentence_bos, out_sentence_eos
 
     def fix_length(self, tokens):
         if len(tokens) < self.sequence_length:
-            return tokens + [0] * (self.sequence_length - len(tokens))
-        return tokens[: self.sequence_length]
+            tokens += [0] * (self.sequence_length - len(tokens))
+        else:
+            tokens = tokens[: self.sequence_length]
+        return torch.tensor(tokens)
 
 
 def read_lines(path):
