@@ -146,6 +146,15 @@ $ python inf.py checkpoint_8000.pt "Die Ursache ist nicht nur mich, sondern auch
 The cause is not only me but also the President of the Union
 ```
 
+Модель здатна розпізнати інверсію підмета та додатка,
+дозволену в німецькій мові
+(`Das will ich` еквівалентне `Ich will das`):
+
+```
+$ python inf.py checkpoint_8000.pt "Das will ich tun"
+I want to do that
+```
+
 Через формальну природу текстів у використаному наборі даних,
 модель схильна галюцинувати різноманітні веселі речі:
 
