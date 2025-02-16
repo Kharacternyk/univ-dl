@@ -11,6 +11,7 @@ def main(checkpoint, text, in_lang="de", out_lang="en", verbose=False):
 
     if verbose:
         print(model)
+        print(sum(parameter.numel() for parameter in model.parameters()), "parameters")
 
     dataset = TranslationDataset(in_lang, out_lang, model.sequence_length)
     tokens = (
