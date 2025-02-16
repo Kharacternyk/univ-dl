@@ -5,14 +5,12 @@ from dataset import TranslationDataset
 
 
 @torch.inference_mode()
-def main(
-    checkpoint,
-    text,
-    in_lang="de",
-    out_lang="en",
-):
+def main(checkpoint, text, in_lang="de", out_lang="en", verbose=False):
     model = torch.load(checkpoint, weights_only=False)
     model.cuda().eval()
+
+    if verbose:
+        print(model)
 
     dataset = TranslationDataset(in_lang, out_lang, model.sequence_length)
     tokens = (
