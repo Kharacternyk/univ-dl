@@ -40,7 +40,3 @@ class TranslationDataset(torch.utils.data.Dataset):
 def read_lines(path):
     with open(path) as file:
         return file.readlines()
-
-
-def get_words(path):
-    return [line.strip().split("\t")[0] for line in read_lines(path)]
