@@ -204,6 +204,11 @@ Two euro is not enough to be enough to have two euro
 ```
 
 ```
+$ python inf.py checkpoint_8000.pt "Man kann Glück nicht kaufen"
+You cannot buy luck, luck, lucky lucky luck
+```
+
+```
 $ python inf.py checkpoint_8000.pt "Je schneller, desto günstiger"
 The more faster, the more favourable, the more favourable more favourable, the more favourable more favourable
 ```
