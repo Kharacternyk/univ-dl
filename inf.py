@@ -5,7 +5,14 @@ from dataset import TranslationDataset
 
 
 @torch.inference_mode()
-def main(checkpoint, text, in_lang="de", out_lang="en", verbose=False):
+def main(
+    checkpoint,
+    text,
+    in_lang="de",
+    out_lang="en",
+    verbose=False,
+    frequency_penalty=None,
+):
     model = torch.load(checkpoint, weights_only=False)
     model.cuda().eval()
 
@@ -38,7 +45,13 @@ def main(checkpoint, text, in_lang="de", out_lang="en", verbose=False):
             e_mask,
             d_mask,
         )
-        next_token = torch.argmax(model.last(d_output), -1)[0][i].item()
+        scores = model.last(d_output)
+
+        if frequency_penalty is not None:
+            for j in range(1, i):
+                scores[..., decoded[j]] -= frequency_penalty
+
+        next_token = torch.argmax(scores, -1)[0][i].item()
 
         if i < model.sequence_length - 1:
             decoded[i + 1] = next_token

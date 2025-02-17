@@ -106,7 +106,7 @@ Transformer(
 
 ![](./plot.png)
 
-### Результати
+### Попередні результати
 
 Переклад на власних текстах здійснюється скриптом [`inf.py`](./inf.py),
 що приймає як аргументи шлях до збереженої моделі та текст німецькою.
@@ -261,3 +261,26 @@ The radio radio radio radio radio radio radio radio radio radio radio radio radi
 
 Це можна спробувати усунути додавши штучні штрафи за перевикористання токенів
 або ж урізноманітнивши зазвичай довгі речення у тренувальному наборі даних короткими.
+
+### Реалізація штрафу за перевикористання токенів
+
+У скрипт [`inf.py`](./inf.py) додано реалізацію штрафу за перевикористання токенів.
+Зі значенням штрафу `3` модель уникає більше зациклювань
+та при цьому не втрачає в якості перекладу.
+
+```
+$ python inf.py checkpoint_8000.pt "Die Ursache ist nicht nur mich, sondern auch Sie" --frequency-penalty 3
+The cause is not only me but also you, too
+```
+
+```
+$ python inf.py checkpoint_8000.pt "Das Buch ist auf dem Tisch" --frequency-penalty 3
+The book is on the table
+$ python inf.py checkpoint_8000.pt "Das Buch ist auf dem Tisch auf dem Tisch" --frequency-penalty 3
+The book is on the table at the table
+```
+
+```
+$ python inf.py checkpoint_8000.pt "Man kann Glück nicht kaufen" --frequency-penalty 3
+You cannot buy luck, good luck
+```
