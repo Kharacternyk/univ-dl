@@ -259,6 +259,11 @@ $ python inf.py checkpoint_8000.pt "Das Radio"
 The radio radio radio radio radio radio radio radio radio radio radio radio radio radio radio radio radio radio
 ```
 
+```
+$ python inf.py checkpoint_8000.pt "Der Flugzeug"
+The aircraft aircraft
+```
+
 Це можна спробувати усунути додавши штучні штрафи за перевикористання токенів
 або ж урізноманітнивши зазвичай довгі речення у тренувальному наборі даних короткими.
 
@@ -283,4 +288,9 @@ The book is on the table at the table
 ```
 $ python inf.py checkpoint_8000.pt "Man kann Glück nicht kaufen" --frequency-penalty 3
 You cannot buy luck, good luck
+```
+
+```
+$ python inf.py checkpoint_8000.pt "Der Flugzeug" --frequency-penalty 3
+The aircraft
 ```
