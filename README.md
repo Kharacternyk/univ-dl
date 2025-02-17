@@ -217,3 +217,31 @@ Wars never change to wars never changed
 $ python inf.py checkpoint_8000.pt "Je schneller, desto günstiger"
 The more faster, the more favourable, the more favourable more favourable, the more favourable more favourable
 ```
+
+### Можливі покращення
+
+Модель не є робастною до деяких простих орфографічних помилок (`u`/`ü`, `ß`/`ss`):
+
+```
+$ python inf.py checkpoint_8000.pt "Der Flugzeug ist alt"
+The aircraft is old
+$ python inf.py checkpoint_8000.pt "Der Flügzeug ist alt"
+The Frogation is old
+```
+
+```
+$ python inf.py checkpoint_8000.pt "Die Autos sind groß"
+The cars are large
+$ python inf.py checkpoint_8000.pt "Die Autos sind gross"
+The cars are the motorssss of Europe
+```
+
+```
+$ python inf.py checkpoint_8000.pt "Zum Geburtstag viel Glück!"
+For birthday, a lot of luck
+$ python inf.py checkpoint_8000.pt "Zum Gebürtstag viel Gluck!"
+For the sake of the day, a lot of plucket
+```
+
+Можливим способом усунути цей недолік є аугментація тренувальних даних,
+що полягає у випадковому внесені помилок у текст для перекладу.
