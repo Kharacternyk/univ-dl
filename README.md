@@ -116,7 +116,7 @@ Transformer(
 (`ist` наприкінці речення німецькою відповідає `is` усередині речення англійською):
 
 ```
-$ python inf.py checkpoint_8000.pt "Sie denken, das die Union nicht sehr wichtig ist"
+$ python inf.py checkpoint_8000.pt "Sie denken, dass die Union nicht sehr wichtig ist"
 You think that the Union is not very important
 ```
 
@@ -125,7 +125,7 @@ You think that the Union is not very important
 (`Denken Sie`, дослівно `Think you`, відповідає `Do you think`):
 
 ```
-$ python inf.py checkpoint_8000.pt "Denken Sie, das die Union sehr wichtig ist?"
+$ python inf.py checkpoint_8000.pt "Denken Sie, dass die Union sehr wichtig ist?"
 Do you think that the Union is very important
 ```
 
@@ -148,11 +148,19 @@ The cause is not only me but also the President of the Union
 
 Модель здатна розпізнати інверсію підмета та додатка,
 дозволену в німецькій мові
-(`Das will ich` еквівалентне `Ich will das`):
+(дослівним перекладом є `That want I to do`):
 
 ```
 $ python inf.py checkpoint_8000.pt "Das will ich tun"
 I want to do that
+```
+
+Модель здатна ідіоматично перефразовувати
+(дослівним перекладом є `I have not done it with pleasure`):
+
+```
+$ python inf.py checkpoint_8000.pt "Ich habe es nicht gerne getan"
+I have not been happy to do so
 ```
 
 Через формальну природу текстів у використаному наборі даних,
@@ -188,6 +196,11 @@ The book is not on the table
 ```
 $ python inf.py checkpoint_8000.pt "Die Ursache ist nicht nur mich, sondern auch Sie"
 The cause is not only me but also you, but you also, you, too, you, but also you, you, too, are not just my but also you, you, but also you, you, you, you, too, but also you, you, too, you, too, you, too, you, too, but also you, you, you, too, you, too, you, too, and you, also, you, too, you, you, you, too, not just as well, but also, you, you, you, you, you, you, you
+```
+
+```
+$ python inf.py checkpoint_8000.pt "Zwei Euro ist nicht genug"
+Two euro is not enough to be enough to have two euro
 ```
 
 ```
