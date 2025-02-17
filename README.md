@@ -116,8 +116,8 @@ Transformer(
 (`ist` наприкінці речення німецькою відповідає `is` усередині речення англійською):
 
 ```
-$ python inf.py checkpoint_8000.pt "Sie denken, dass die Union nicht sehr wichtig ist"
-You think that the Union is not very important
+$ python inf.py checkpoint_8000.pt "Sie denken, dass diese Dinge nicht sehr wichtig ist"
+You think that these things are not very important
 ```
 
 Модель правильно додає допоміжні дієслова в питаннях англійською,
@@ -125,8 +125,8 @@ You think that the Union is not very important
 (`Denken Sie`, дослівно `Think you`, відповідає `Do you think`):
 
 ```
-$ python inf.py checkpoint_8000.pt "Denken Sie, dass die Union sehr wichtig ist?"
-Do you think that the Union is very important
+$ python inf.py checkpoint_8000.pt "Denken Sie, dass diese Dinge sehr wichtig ist"
+Do you think that these things are very important
 ```
 
 Модель вивчила обидва варіанти формування заперечення наявності іменника в німецькій мові
@@ -142,8 +142,8 @@ That was not a woman
 Модель вивчила звороти на кшталт "не лише …, а й …":
 
 ```
-$ python inf.py checkpoint_8000.pt "Die Ursache ist nicht nur mich, sondern auch der Präsident der Union"
-The cause is not only me but also the President of the Union
+$ python inf.py checkpoint_8000.pt "Die Ursache ist nicht nur mich, sondern auch das Wetter"
+The cause is not only me but also the weather
 ```
 
 Модель здатна розпізнати інверсію підмета та додатка,
