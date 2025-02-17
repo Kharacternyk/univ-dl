@@ -167,21 +167,21 @@ I have not been happy to do so
 модель схильна галюцинувати різноманітні веселі речі:
 
 ```
-$ # I don't find it interesting, therefore I won't go
-$ python inf.py checkpoint_8000.pt "Ich finde es nicht interesant, deshalb gehe ich nicht"
-I do not think it is an inter-institutional, and I do not take it into account, therefore, I do not take an intergovernmental approach
-```
-
-```
 $ # I love you
 $ python inf.py checkpoint_8000.pt "Ich liebe dich"
 I am particularly concerned
 ```
 
 ```
-$ # A lot of happiness for the birthday! (i.e. Happy Birthday!)
-$ python inf.py checkpoint_8000.pt "Zum Gebürtstag viel Glück!"
-For the sake of the day, good luck
+$ # I don't like green flowers
+$ python inf.py checkpoint_8000.pt "Grüne Blumen gefallen mir nicht"
+The Greens, in the Greens, did not have me
+```
+
+```
+$ # Stop
+$ python inf.py checkpoint_8000.pt "Hör auf"
+Heörms on von
 ```
 
 Також модель іноді галюцинує повтори в непоганих в усьому іншому перекладах:
@@ -206,6 +206,11 @@ Two euro is not enough to be enough to have two euro
 ```
 $ python inf.py checkpoint_8000.pt "Man kann Glück nicht kaufen"
 You cannot buy luck, luck, lucky lucky luck
+```
+
+```
+$ python inf.py checkpoint_8000.pt "Kriegen ändern sich nie"
+Wars never change to wars never changed
 ```
 
 ```
