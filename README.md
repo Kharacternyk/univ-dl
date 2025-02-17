@@ -113,10 +113,10 @@ Transformer(
 Найкращою версією моделі видається версія, збережена після 8000 ітерацій.
 
 Модель здатна встановити правильний порядок слів під час перекладу
-(`ist` наприкінці речення німецькою відповідає `is` усередині речення англійською):
+(`sind` наприкінці речення німецькою відповідає `are` усередині речення англійською):
 
 ```
-$ python inf.py checkpoint_8000.pt "Sie denken, dass diese Dinge nicht sehr wichtig ist"
+$ python inf.py checkpoint_8000.pt "Sie denken, dass diese Dinge nicht sehr wichtig sind"
 You think that these things are not very important
 ```
 
@@ -125,7 +125,7 @@ You think that these things are not very important
 (`Denken Sie`, дослівно `Think you`, відповідає `Do you think`):
 
 ```
-$ python inf.py checkpoint_8000.pt "Denken Sie, dass diese Dinge sehr wichtig ist"
+$ python inf.py checkpoint_8000.pt "Denken Sie, dass diese Dinge sehr wichtig sind"
 Do you think that these things are very important
 ```
 
