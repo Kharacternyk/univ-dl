@@ -184,7 +184,7 @@ $ python inf.py checkpoint_8000.pt "Hör auf"
 Heörms on von
 ```
 
-Також модель іноді галюцинує повтори в непоганих в усьому іншому перекладах:
+Також модель іноді зациклюється в непоганих в усьому іншому перекладах:
 
 ```
 $ python inf.py checkpoint_8000.pt "Das Buch ist auf dem Tisch"
@@ -245,3 +245,19 @@ For the sake of the day, a lot of plucket
 
 Можливим способом усунути цей недолік є аугментація тренувальних даних,
 що полягає у випадковому внесені помилок у текст для перекладу.
+
+Також модель схильна зациклюватись на коротких,
+неповних реченнях:
+
+```
+$ python inf.py checkpoint_8000.pt "Nein"
+Nono No Nono No Nono Nono No Nono No No
+```
+
+```
+$ python inf.py checkpoint_8000.pt "Das Radio"
+The radio radio radio radio radio radio radio radio radio radio radio radio radio radio radio radio radio radio
+```
+
+Це можна спробувати усунути додавши штучні штрафи за перевикористання токенів
+або ж урізноманітнивши зазвичай довгі речення у тренувальному наборі даних короткими.
