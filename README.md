@@ -150,11 +150,13 @@ The cause is not only me but also the weather
 
 Модель здатна розпізнати інверсію підмета та додатка,
 дозволену в німецькій мові
-(дослівним перекладом є `That want I to do`):
+(дослівними перекладами є `That want I to do` та `That will I do`):
 
 ```
 $ python inf.py checkpoint_8000.pt "Das will ich tun"
 I want to do that
+$ python inf.py checkpoint_8000.pt "Das werde ich tun"
+I will do that
 ```
 
 Модель здатна ідіоматично перефразовувати
